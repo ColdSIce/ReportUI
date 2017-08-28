@@ -1,6 +1,18 @@
 # ReportUI
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.0.
+## Overview
+Angular module for representation long and high width data tables with fixed headers and columns and scrollable body.
+![ReportUI](./src/assets/screen.png)
+
+## How to use
+* Import module
+* in your component.html add: `<app-table-layout [data]="data"></app-table-layout>`
+* in your component.ts you must provide data in format: 
+`data = {
+    fixedColumnNames:["index", "name"],
+    scrollableColumnNames:["gender", "company", "email", "phone", "address"],
+    rows:[//your data objects with samr props...]
+}`
 
 ## Development server
 
