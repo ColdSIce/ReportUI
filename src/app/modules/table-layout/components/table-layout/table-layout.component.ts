@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener, Input } from '@angular/core';
 
 @Component({
   selector: 'app-table-layout',
@@ -8,8 +8,11 @@ import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 export class TableLayoutComponent implements OnInit {
 
   scrollContainer:any;
+  @Input('data') data:any;
 
-  constructor() { }
+  constructor() {
+    
+  }
 
   ngOnInit() {
       this.scrollContainer = document.getElementById("scrollable");
@@ -78,9 +81,3 @@ export class TableLayoutComponent implements OnInit {
 
 }
 
-
-/* 
-$(".fixed_cell").css("left", window.pageXOffset + 'px');
-
-$("#top_left_cell").css("top", window.pageYOffset + 'px');
-$("#top_left_cell").css("left", window.pageXOffset + 'px');*/
