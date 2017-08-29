@@ -8,11 +8,17 @@ Angular module for representation long and high width data tables with fixed hea
 * Import module
 * in your component.html add: `<app-table-layout [data]="data"></app-table-layout>`
 * in your component.ts you must provide data in format: 
-`data = {
+```javascript
+data = {
     fixedColumnNames:["index", "name"],
     scrollableColumnNames:["gender", "company", "email", "phone", "address"],
     rows:[//your data objects with samr props...]
-}`
+}```
+
+##Customizations
+You can customize some css styles:
+`<app-table-layout [data]="data" [rowHeight]="'50px'" [background]="'#3F51B5'" [color]="'#eee'"></app-table-layout>`
+
 
 ## Development server
 
