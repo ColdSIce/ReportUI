@@ -1,20 +1,22 @@
-<div id="scrollable" class="table_container">
+<div id="scrollable" class="table_container" [ngStyle]="{'background-color': background}">
 
-  <div id="point" class="header">
+  <div id="point" class="header" [ngStyle]="{'height': rowHeight}">
 
-    <ul id="top_left_fixed">
-      <li *ngFor="let fixedName of data.fixedColumnNames">
-        <span>{{fixedName}}
+    <ul id="top_left_fixed" [ngStyle]="{'height': rowHeight}">
+      <li [ngStyle]="{'height': rowHeight, 'background-color': topLeftBg}" *ngFor="let fixedName of data.fixedColumnNames" >
+        <span [ngStyle]="{'line-height': rowHeight, 'color':color}">{{fixedName}}
           <i fa [name]="'repeat'" (click)="unfixColumn(fixedName)"></i>
         </span>
       </li>
     </ul>
 
-    <div id="scrollable_x" class="scrollable_x">
-      <ul>
-        <li *ngFor="let fixedName of data.fixedColumnNames"><span>$nbsp;</span></li>
-        <li *ngFor="let scrollableName of data.scrollableColumnNames">
-          <span>{{scrollableName}}
+    <div id="scrollable_x" class="scrollable_x" [ngStyle]="{'height': rowHeight, 'top': negRowHeight}">
+      <ul [ngStyle]="{'height': rowHeight}">
+        <li [ngStyle]="{'height': rowHeight, 'background-color': xyBg}" *ngFor="let fixedName of data.fixedColumnNames">
+          <span [ngStyle]="{'line-height': rowHeight, 'color':color}">$nbsp;</span>
+        </li>
+        <li [ngStyle]="{'height': rowHeight, 'background-color': xyBg}" *ngFor="let scrollableName of data.scrollableColumnNames">
+          <span [ngStyle]="{'line-height': rowHeight, 'color':color}">{{scrollableName}}
             <i fa [name]="'thumb-tack'" (click)="fixColumn(scrollableName)"></i>
           </span>
         </li>
@@ -23,16 +25,20 @@
   </div>
 
   <div class="data_rows" id="data_rows">
-   
-
-    <div class="data_row" *ngFor="let row of data.rows">
-      <ul>
-        <li *ngFor="let fixedName of data.fixedColumnNames"><span>&nbsp;</span></li>
-        <li *ngFor="let scrollableName of data.scrollableColumnNames"><span>{{row[scrollableName]}}</span></li>
+    <div class="data_row" *ngFor="let row of data.rows" [ngStyle]="{'height': rowHeight}">
+      <ul [ngStyle]="{'height': rowHeight}">
+        <li [ngStyle]="{'height': subOneRowHeight, 'background-color': background}" *ngFor="let fixedName of data.fixedColumnNames">
+          <span [ngStyle]="{'line-height': rowHeight, 'color':color}">&nbsp;</span>
+        </li>
+        <li [ngStyle]="{'height': subOneRowHeight, 'background-color': background}" *ngFor="let scrollableName of data.scrollableColumnNames">
+          <span [ngStyle]="{'line-height': rowHeight, 'color':color}">{{row[scrollableName]}}</span>
+        </li>
       </ul>
-      <div class="scrollable_y">
-        <ul>
-          <li *ngFor="let fixedName of data.fixedColumnNames"><span>{{row[fixedName]}}</span></li>
+      <div [ngStyle]="{'height': rowHeight, 'top': negRowHeight}" class="scrollable_y">
+        <ul [ngStyle]="{'height': rowHeight}">
+          <li [ngStyle]="{'height': subOneRowHeight, 'background-color': xyBg}" *ngFor="let fixedName of data.fixedColumnNames">
+            <span [ngStyle]="{'line-height': rowHeight, 'color':color}">{{row[fixedName]}}</span>
+          </li>
         </ul>
       </div>
     </div>    

@@ -10,6 +10,12 @@ export class TableLayoutComponent implements OnInit {
   scrollContainer:any;
   @Input('data') data:any;
   @Input('rowHeight') rowHeight:any;
+  @Input('background') background:any;
+  @Input('color') color:any;
+  negRowHeight:any;
+  subOneRowHeight:any;
+  topLeftBg:any;
+  xyBg:any;
 
   constructor() {
     
@@ -18,6 +24,10 @@ export class TableLayoutComponent implements OnInit {
   ngOnInit() {
       this.scrollContainer = document.getElementById("scrollable");
       if(this.scrollContainer) window.addEventListener('scroll', (e) => this.scroll(e), true);
+      this.negRowHeight = "-" + this.rowHeight;
+      this.subOneRowHeight = (parseInt(this.rowHeight) - 1) + "px";
+      this.topLeftBg = this.colorLuminance(this.background, 0.3);
+      this.xyBg = this.colorLuminance(this.background, 0.15);     
   }
 
   ngOnDestroy() {
@@ -43,7 +53,7 @@ export class TableLayoutComponent implements OnInit {
 
         if(fixed){
           fixed.style.left = deltaX + 'px';
-          fixed.style.top = (deltaY + 60) + 'px';
+          fixed.style.top = (deltaY + parseInt(this.rowHeight) + 'px');
         }
 
         if(scrollable_y){
@@ -89,6 +99,22 @@ export class TableLayoutComponent implements OnInit {
     var index = this.data.fixedColumnNames.indexOf(colName);
     if(index >= 0)this.data.fixedColumnNames.splice(index, 1);
     if(this.data.scrollableColumnNames.indexOf(colName) < 0) this.data.scrollableColumnNames.splice(0, 0, colName);
+  }
+
+  colorLuminance(hex, lum) {
+    hex = String(hex).replace(/[^0-9a-f]/gi, '');
+    if (hex.length < 6) {
+      hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
+    }
+    lum = lum || 0;
+
+    var rgb = "#", c, i;
+    for (i = 0; i < 3; i++) {
+      c = parseInt(hex.substr(i*2,2), 16);
+      c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
+      rgb += ("00"+c).substr(c.length);
+    }
+    return rgb;
   }
 
 
