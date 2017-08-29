@@ -3,13 +3,21 @@
   <div id="point" class="header">
 
     <ul id="top_left_fixed">
-      <li *ngFor="let fixedName of data.fixedColumnNames" (click)="unfixColumn(fixedName)"><span>{{fixedName}}</span></li>
+      <li *ngFor="let fixedName of data.fixedColumnNames">
+        <span>{{fixedName}}
+          <i fa [name]="'repeat'" (click)="unfixColumn(fixedName)"></i>
+        </span>
+      </li>
     </ul>
 
     <div id="scrollable_x" class="scrollable_x">
       <ul>
         <li *ngFor="let fixedName of data.fixedColumnNames"><span>$nbsp;</span></li>
-        <li *ngFor="let scrollableName of data.scrollableColumnNames" (click)="fixColumn(scrollableName)"><span>{{scrollableName}}</span></li>
+        <li *ngFor="let scrollableName of data.scrollableColumnNames">
+          <span>{{scrollableName}}
+            <i fa [name]="'thumb-tack'" (click)="fixColumn(scrollableName)"></i>
+          </span>
+        </li>
       </ul>
     </div>
   </div>

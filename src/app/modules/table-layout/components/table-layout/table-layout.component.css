@@ -84,8 +84,10 @@
     border-bottom: 1px solid #333;
 }
 
-.span{
-    
+span > i{
+    cursor: pointer;
+    margin-left: 5px;
+    font-size: 14px;
 }
 
 .header > ul > li,
