@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  rowHeight = '100px;'
   data = {
     fixedColumnNames:["index", "name"],
     scrollableColumnNames:["gender", "company", "email", "phone", "address"],

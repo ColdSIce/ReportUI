@@ -9,6 +9,7 @@ export class TableLayoutComponent implements OnInit {
 
   scrollContainer:any;
   @Input('data') data:any;
+  @Input('rowHeight') rowHeight:any;
 
   constructor() {
     
@@ -76,6 +77,18 @@ export class TableLayoutComponent implements OnInit {
       top: offset.top + window.pageYOffset - docElem.clientTop,
       left: offset.left + window.pageXOffset - docElem.clientLeft
     };
+  }
+
+  fixColumn(colName:string){
+    var index = this.data.scrollableColumnNames.indexOf(colName);
+    if(index >= 0)this.data.scrollableColumnNames.splice(index, 1);
+    if(this.data.fixedColumnNames.indexOf(colName) < 0)this.data.fixedColumnNames.push(colName);
+  }
+
+  unfixColumn(colName:string){
+    var index = this.data.fixedColumnNames.indexOf(colName);
+    if(index >= 0)this.data.fixedColumnNames.splice(index, 1);
+    if(this.data.scrollableColumnNames.indexOf(colName) < 0) this.data.scrollableColumnNames.splice(0, 0, colName);
   }
 
 
