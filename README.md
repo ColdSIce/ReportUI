@@ -13,7 +13,8 @@ data = {
     fixedColumnNames:["index", "name"],
     scrollableColumnNames:["gender", "company", "email", "phone", "address"],
     rows:[//your data objects with samr props...]
-}```
+}
+```
 
 ##Customizations
 You can customize some css styles:

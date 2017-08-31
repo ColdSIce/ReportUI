@@ -1,0 +1,56 @@
+:host {  
+    display: block;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+}
+
+.scrollable_y{
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    display: inline-block;
+}
+
+.scrollable_y ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-size: 0;
+    white-space: nowrap;
+    display: inline-block;
+    z-index: 1;
+}
+
+.in_row{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-size: 0;
+    white-space: nowrap;
+    z-index: 0;
+}
+
+
+.scrollable_y > ul > li,
+.in_row > li{
+    width: 199px;
+    display: inline-block;
+    text-align: center;
+    border-right: 1px solid #333;
+    border-bottom: 1px solid #333;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+span > i{
+    cursor: pointer;
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+.scrollable_y > ul > li > span,
+.in_row > li > span{
+    font-size: 18px;
+    color: #fff;
+}

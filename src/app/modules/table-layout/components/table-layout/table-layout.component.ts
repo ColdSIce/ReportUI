@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy, HostListener, Input } from '@angular/core';
+import { TreeViewComponent } from '../tree-view/tree-view.component';
 
 @Component({
   selector: 'app-table-layout',
@@ -9,8 +10,8 @@ export class TableLayoutComponent implements OnInit {
 
   scrollContainer:any;
   @Input('data') data:any;
-  @Input('rowHeight') rowHeight:any;
-  @Input('background') background:any;
+  @Input('rowHeight') rowHeight:any = '60px';
+  @Input('background') background:any = '#444';
   @Input('color') color:any;
   negRowHeight:any;
   subOneRowHeight:any;
@@ -26,8 +27,8 @@ export class TableLayoutComponent implements OnInit {
       if(this.scrollContainer) window.addEventListener('scroll', (e) => this.scroll(e), true);
       this.negRowHeight = "-" + this.rowHeight;
       this.subOneRowHeight = (parseInt(this.rowHeight) - 1) + "px";
-      this.topLeftBg = this.colorLuminance(this.background, 0.3);
-      this.xyBg = this.colorLuminance(this.background, 0.15);     
+      this.topLeftBg = this.colorLuminance(this.background, 0.4);
+      this.xyBg = this.colorLuminance(this.background, 0.2);     
   }
 
   ngOnDestroy() {

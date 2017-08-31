@@ -5,47 +5,21 @@
     overflow: scroll;
 }
 
-/***main blocks markdown***/
 .header{
     position: relative;
     top: 0;
     left: 0;
-    height: 60px;
 } 
 
-.data_row{
-    height: 60px;
-} 
-
-/***main blocks content***/
 .header ul,
-.scrollable_x ul,
-.scrollable_y ul{
+.scrollable_x ul{
     padding: 0;
     margin: 0;
-    height: 60px;
     list-style: none;
     font-size: 0;
     white-space: nowrap;
     position: relative;
     top: 0;
-    box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.75);
-}
-
-.data_row ul{
-    padding: 0;
-    margin: 0;
-    height: 60px;
-    list-style: none;
-    font-size: 0;
-    white-space: nowrap;
-    position: relative;
-    top: 0;
-    box-shadow: none;
-}
-
-.scrollable_y ul{
-    box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.75);
 }
 
 .header ul{
@@ -53,36 +27,18 @@
     z-index: 2;
 }
 
-.scrollable_y ul{
-    display: inline-block;
-    z-index: 1;
-}
-
 .scrollable_x ul{
     z-index: 1;
 }
 
-.data_row ul{
-    z-index: 0;
-    display: inline-block;
-}
-
 .header > ul > li,
-.scrollable_x > ul > li,
-.scrollable_y > ul > li,
-.data_row > ul > li{
+.scrollable_x > ul > li{
     width: 199px;
-    height: 60px;
     display: inline-block;
     text-align: center;
     border-right: 1px solid #333;
     padding-left: 5px;
     padding-right: 5px;
-}
-
-.scrollable_y > ul > li,
-.data_row > ul > li{
-    height: 59px;
     border-bottom: 1px solid #333;
 }
 
@@ -92,54 +48,17 @@ span > i{
     font-size: 14px;
 }
 
-.header > ul > li,
-.scrollable_x > ul > li{
-    background-color: #555;
-}
-
-.scrollable_y > ul > li{
-    background-color: #494949;
-}
-
-
 .header > ul > li > span,
-.scrollable_x > ul > li > span,
-.scrollable_y > ul > li > span{
+.scrollable_x > ul > li > span{
     font-size: 18px;
-    line-height: 60px;
     color: #fff;
 }
 
-.header > ul > li{
-    background-color: #666;
-}
-
-.data_row > ul > li > span{
-    font-size: 18px;
-    line-height: 60px;
-    color: #fff;
-}
-
-/***behavior***/
 .scrollable_x{
-    height: 60px;
     white-space: nowrap;
     position: relative;
     top: -60px;
 }
 
-.scrollable_y{
-    overflow: hidden;
-    height: 60px;
-    white-space: nowrap;
-    box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.75);
-    position: relative;
-    top: -60px;
-    display: inline-block;
-}
-
-.scrollable_xy{
-
-}
 
 

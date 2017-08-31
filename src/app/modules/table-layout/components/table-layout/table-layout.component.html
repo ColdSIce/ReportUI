@@ -25,22 +25,18 @@
   </div>
 
   <div class="data_rows" id="data_rows">
-    <div class="data_row" *ngFor="let row of data.rows" [ngStyle]="{'height': rowHeight}">
-      <ul [ngStyle]="{'height': rowHeight}">
-        <li [ngStyle]="{'height': subOneRowHeight, 'background-color': background}" *ngFor="let fixedName of data.fixedColumnNames">
-          <span [ngStyle]="{'line-height': rowHeight, 'color':color}">&nbsp;</span>
-        </li>
-        <li [ngStyle]="{'height': subOneRowHeight, 'background-color': background}" *ngFor="let scrollableName of data.scrollableColumnNames">
-          <span [ngStyle]="{'line-height': rowHeight, 'color':color}">{{row[scrollableName]}}</span>
-        </li>
-      </ul>
-      <div [ngStyle]="{'height': rowHeight, 'top': negRowHeight}" class="scrollable_y">
-        <ul [ngStyle]="{'height': rowHeight}">
-          <li [ngStyle]="{'height': subOneRowHeight, 'background-color': xyBg}" *ngFor="let fixedName of data.fixedColumnNames">
-            <span [ngStyle]="{'line-height': rowHeight, 'color':color}">{{row[fixedName]}}</span>
-          </li>
-        </ul>
-      </div>
-    </div>    
+    <tree-view 
+      class="data_row" 
+      [ngStyle]="{'height': rowHeight}"
+      *ngFor="let row of data.rows" 
+      [row]="row" 
+      [fixedColls]="data.fixedColumnNames" 
+      [scrollColls]="data.scrollableColumnNames"
+      [rowHeight]="rowHeight"
+      [background]="background"
+      [brighterBG]="topLeftBg"
+      [mediumBG]="xyBg"
+      [color]="color">
+    </tree-view>   
   </div>
 </div>

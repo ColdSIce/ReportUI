@@ -1,0 +1,16 @@
+<ul class="in_row" [ngStyle]="{'height': rowHeight}">
+  <li [ngStyle]="{'height': subOneRowHeight, 'background-color': background}" *ngFor="let fixedName of fixedColumnNames">
+    <span [ngStyle]="{'line-height': rowHeight, 'color':color}">&nbsp;</span>
+  </li>
+  <li [ngStyle]="{'height': subOneRowHeight, 'background-color': background}" *ngFor="let scrollableName of scrollableColumnNames">
+    <span [ngStyle]="{'line-height': rowHeight, 'color':color}">{{row[scrollableName]}}</span>
+  </li>
+</ul>
+<div [ngStyle]="{'height': rowHeight, 'top': negRowHeight}" class="scrollable_y">
+  <ul [ngStyle]="{'height': rowHeight}">
+    <li [ngStyle]="{'height': subOneRowHeight, 'background-color': xyBg}" *ngFor="let fixedName of fixedColumnNames">
+      <span [ngStyle]="{'line-height': rowHeight, 'color':color}">{{row[fixedName]}}</span>
+    </li>
+  </ul>
+</div>
+
